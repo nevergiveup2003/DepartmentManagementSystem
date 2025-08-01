@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { IDepartment } from '../types/IDepartment';
+import { IEmployee } from '../types/IEmployee';
 
 @Injectable({
   providedIn: 'root',
@@ -24,5 +25,8 @@ export class HttpService {
   }
   deleteDepartment(id: number) {
     return this.http.delete(this.apiUrl + '/api/Department/' + id);
+  }
+  getEmployeeList(){
+    return this.http.get<IEmployee[]>(this.apiUrl + '/api/Employee/')
   }
 }

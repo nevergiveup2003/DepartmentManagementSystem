@@ -1,0 +1,63 @@
+<mat-card class="form-card p-8">
+  <mat-card-title class="py-3">Employee form</mat-card-title>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form-container">
+    <mat-form-field class="w-full">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Enter your name" formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field class="w-full">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        placeholder="Enter your email"
+        formControlName="email"
+      />
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <mat-label>Phone</mat-label>
+      <input
+        matInput
+        type="phone"
+        placeholder="Enter your phone"
+        formControlName="phone"
+      />
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option value="male">Male</mat-option>
+        <mat-option value="female">Female</mat-option>
+        <mat-option value="other">Other</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <mat-label>Job Title</mat-label>
+      <mat-select formControlName="jobTitle">
+        <mat-option value="Developer">Developer</mat-option>
+        <mat-option value="front-end">front-end</mat-option>
+        <mat-option value="back-end">back-end</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <mat-label>Department</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Enter your Department"
+        formControlName="department"
+      />
+    </mat-form-field>
+    <div class="flex justify-center">
+      <button
+        mat-raised-button
+       class="bg-green-500!"
+        type="submit"
+        [disabled]="myForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</mat-card>

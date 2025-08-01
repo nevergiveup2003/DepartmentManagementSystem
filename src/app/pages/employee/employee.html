@@ -1,0 +1,13 @@
+<div class="p-8">
+    <div class="flex justify-between mb-2">
+        <h1 class="text-xl font-semibold">Employee List</h1>
+        <button class="bg-green-500!" mat-flat-button (click)= add()>
+      Add
+    </button>
+    </div>
+    <app-table [data]="employeeList" [displayedColumns]="showCols"
+    (onEdit)="edit($event)"
+    (onDelete)="delete($event)"
+
+    ></app-table>
+</div>
