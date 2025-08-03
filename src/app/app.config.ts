@@ -4,13 +4,14 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
-
+import {provideNativeDateAdapter}from'@angular/material/core'
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(),
-    provideAnimations()
+    provideAnimations(),
+    provideNativeDateAdapter()
   ]
 };

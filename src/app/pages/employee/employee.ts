@@ -24,15 +24,30 @@ export class Employee {
   employeeList: IEmployee[] = [];
   showCols = ['id', 'name', 'email', 'phone', 'action'];
   ngOnInit() {
+    this.getLatesDate();
+  }
+  getLatesDate() {
     this.httpService.getEmployeeList().subscribe((result) => {
       this.employeeList = result;
     });
   }
   edit(employee: IEmployee) {
-    console.log(employee);
+    let ref = this.dialog.open(EmployeeForm, {
+      panelClass: 'm-auto',
+      data: {
+        employeeId: employee.id,
+      },
+    });
+    ref.afterClosed().subscribe((result) => {
+      this.getLatesDate();
+    });
   }
   delete(employee: IEmployee) {
     console.log(employee);
+    this.httpService.deleteEmployeeId(employee.id).subscribe(() => {
+      alert('xoa thanh cong');
+      this.getLatesDate();
+    });
   }
 
   add() {
@@ -40,8 +55,12 @@ export class Employee {
   }
   readonly dialog = inject(MatDialog);
   openDialog(): void {
-    this.dialog.open(EmployeeForm, {
+    let ref = this.dialog.open(EmployeeForm, {
       panelClass: 'm-auto',
+      data: {},
+    });
+    ref.afterClosed().subscribe((result) => {
+      this.getLatesDate();
     });
   }
 }
