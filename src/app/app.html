@@ -1,15 +1,24 @@
 <header>
-  <mat-toolbar class="bg-blue-300!">
-    <button
-      (click)="drawer.toggle()"
-      matIconButton
-      class="text-white!"
-      aria-label="Example icon-button with menu icon"
-    >
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span class="text-white!">Employee Management System</span>
-    <span class="example-spacer"></span>
+  <mat-toolbar class="bg-blue-300! flex justify-between">
+    <div class="flex items-center">
+      <button
+        (click)="drawer.toggle()"
+        matIconButton
+        class="text-white!"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="text-white!">Employee Management System</span>
+    </div>
+    @if(authService.isLoggedIn){
+    <div class="flex gap-2 items-center">
+      <span class="text-white">{{ authService.authDetail?.email }}</span>
+      <button (click)="logout()" matIconButton class="text-white!">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+    }
   </mat-toolbar>
 </header>
 <mat-drawer-container class="" autosize>
@@ -17,13 +26,17 @@
     #drawer
     class="bg-white shadow-lg w-[300px]"
     [mode]="'side'"
-    [opened]="true"
+    [opened]="authService.isLoggedIn"
   >
     <div class="flex flex-col items-center gap-4 text-blue-700 p-4">
-      <a routerLink="/">DashBoard</a>
+      @if(authService.isEmployee){
+
+      <a routerLink="/employeeDashboard">Employee DashBoard</a>
+      } @else {
+      <a routerLink="/">Employee DashBoard</a>
       <a routerLink="departments">Departments</a>
       <a routerLink="employee">Employee</a>
-
+      }
     </div>
   </mat-drawer>
   <mat-drawer-content>
