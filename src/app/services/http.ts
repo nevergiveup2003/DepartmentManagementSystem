@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { IDepartment } from '../types/IDepartment';
 import { IEmployee } from '../types/IEmployee';
 import { environment } from '../../environments/environment.development';
+import { PageData } from '../types/page-data';
 @Injectable({
   providedIn: 'root',
 })
@@ -10,8 +11,9 @@ export class HttpService {
   http = inject(HttpClient);
 
   constructor() {}
-  getDepartments() {
-    return this.http.get<IDepartment[]>(environment.apiUrl + '/api/Department');
+  getDepartments(filter:any) {
+    var params = new HttpParams({fromObject : filter})
+    return this.http.get<PageData<IDepartment>>(environment.apiUrl + '/api/Department?' + params);
   }
   addDepartment(name: string) {
     return this.http.post(environment.apiUrl + '/api/Department', {
@@ -26,8 +28,9 @@ export class HttpService {
   deleteDepartment(id: number) {
     return this.http.delete(environment.apiUrl + '/api/Department/' + id);
   }
-  getEmployeeList() {
-    return this.http.get<IEmployee[]>(environment.apiUrl + '/api/Employee/');
+  getEmployeeList(filter:any) {
+    var params = new HttpParams({fromObject: filter})
+    return this.http.get<PageData<IEmployee>>(environment.apiUrl + '/api/Employee?' + params.toString());
   }
   addEmployee(employee: IEmployee) {
    return this.http.post(environment.apiUrl + '/api/Employee', employee);

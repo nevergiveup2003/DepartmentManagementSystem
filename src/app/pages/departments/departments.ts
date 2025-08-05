@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { PageData } from '../../types/page-data';
+import { Table } from '../../components/table/table';
 @Component({
   selector: 'app-departments',
   imports: [
@@ -16,18 +18,23 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
     CommonModule,
-    FormsModule,
+    FormsModule,Table
   ],
   templateUrl: './departments.html',
   styleUrl: './departments.scss',
 })
 export class Departments {
   httpService = inject(HttpService);
-  departments: IDepartment[] = [];
+  departments!: PageData<IDepartment>;
   isFormOpen: boolean = false;
+  filter = {
+    pageIndex: 0,
+    pageSize: 2,
+  };
+  showCols = ['id', 'name', 'action'];
 
   getLatestData() {
-    this.httpService.getDepartments().subscribe((result) => {
+    this.httpService.getDepartments(this.filter).subscribe((result) => {
       this.departments = result;
     });
   }
@@ -64,5 +71,10 @@ export class Departments {
       alert('Xoá thành công');
       this.getLatestData();
     });
+  }
+  pageChange(event: any) {
+    console.log(event);
+    this.filter.pageIndex = event.pageIndex;
+    this.getLatestData();
   }
 }

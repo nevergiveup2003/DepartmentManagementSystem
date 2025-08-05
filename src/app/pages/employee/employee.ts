@@ -13,22 +13,47 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { EmployeeForm } from './employee-form/employee-form';
+import { MatInputModule } from '@angular/material/input';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { debounceTime } from 'rxjs';
+import { PageData } from '../../types/page-data';
 @Component({
   selector: 'app-employee',
-  imports: [Table, MatButtonModule],
+  imports: [
+    Table,
+    MatButtonModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+  ],
   templateUrl: './employee.html',
   styleUrl: './employee.scss',
 })
 export class Employee {
   httpService = inject(HttpService);
-  employeeList: IEmployee[] = [];
+  pagedEmployeeData!: PageData<IEmployee>;
   showCols = ['id', 'name', 'email', 'phone', 'action'];
+  filter: any = {
+    pageIndex: 0,
+    pageSize: 2,
+  };
   ngOnInit() {
     this.getLatesDate();
+    this.searchControl.valueChanges
+      .pipe(debounceTime(300))
+      .subscribe((result: string | null) => {
+        console.log(result);
+        this.filter.search = result;
+        this.filter.pageIndex = 0;
+        this.getLatesDate();
+      });
   }
+  searchControl = new FormControl('');
+  totalData!: number;
   getLatesDate() {
-    this.httpService.getEmployeeList().subscribe((result) => {
-      this.employeeList = result;
+    this.httpService.getEmployeeList(this.filter).subscribe((result) => {
+      this.pagedEmployeeData = result;
     });
   }
   edit(employee: IEmployee) {
@@ -62,5 +87,10 @@ export class Employee {
     ref.afterClosed().subscribe((result) => {
       this.getLatesDate();
     });
+  }
+  pageChange(event: any) {
+    console.log(event);
+    this.filter.pageIndex = event.pageIndex;
+    this.getLatesDate();
   }
 }
