@@ -49,4 +49,10 @@ export class authService {
     let token: IAuthToken = JSON.parse(localStorage.getItem('auth')!);
     return token;
   }
+  getProfile(){
+    return this.http.get(environment.apiUrl+"/api/Auth/profile")
+  }
+  updateProfile(profile:any){
+    return this.http.post(environment.apiUrl+"/api/Auth/profile",profile)
+  }
 }

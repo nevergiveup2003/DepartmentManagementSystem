@@ -13,7 +13,7 @@
     </div>
     @if(authService.isLoggedIn){
     <div class="flex gap-2 items-center">
-      <span class="text-white">{{ authService.authDetail?.email }}</span>
+      <span routerLink="/profile" class="text-white cursor-pointer">{{ authService.authDetail?.email }}</span>
       <button (click)="logout()" matIconButton class="text-white!">
         <mat-icon>logout</mat-icon>
       </button>
