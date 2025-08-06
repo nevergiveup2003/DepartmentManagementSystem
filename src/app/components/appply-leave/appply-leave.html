@@ -1,0 +1,43 @@
+<div class="p-8">
+  <h1 class="text-xl font-semibold mb-3">Apply your leave</h1>
+  <form [formGroup]="leaveForm" (ngSubmit)="onSubmit()" class="form-container">
+    <mat-form-field class="w-full">
+      <mat-label>Leave Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option [value]="1">Sick Leave</mat-option>
+        <mat-option [value]="2">Casual Leave</mat-option>
+        <mat-option [value]="3">Earned Leave</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="w-full">
+      <mat-label>Reason</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Enter your reason"
+        formControlName="reason"
+      />
+    </mat-form-field>
+
+    <div class="flex gap-2"></div>
+    <mat-form-field class="w-full">
+      <mat-label>Date of Birth</mat-label>
+      <input matInput [matDatepicker]="dobPicker" formControlName="leaveDate" />
+      <mat-hint></mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="dobPicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #dobPicker></mat-datepicker>
+    </mat-form-field>
+
+    <div class="flex justify-center mt-4">
+      <button
+        mat-flat-button
+        type="submit"
+        class="text-white! bg-green-500!"
+      >Apply</button>
+    </div>
+  </form>
+</div>
