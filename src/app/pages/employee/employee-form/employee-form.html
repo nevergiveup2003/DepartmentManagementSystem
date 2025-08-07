@@ -1,4 +1,4 @@
-<mat-card class="form-card p-8">
+<mat-card class="form-card p-4">
   @if(this.data.employeeId){
 
   <mat-card-title class="py-3">Update Employee form</mat-card-title>
@@ -64,16 +64,24 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <mat-form-field class="w-full">
-      <mat-label>Date of Birth</mat-label>
-      <input matInput [matDatepicker]="dobPicker" formControlName="dob" />
-      <mat-hint></mat-hint>
-      <mat-datepicker-toggle
-        matIconSuffix
-        [for]="dobPicker"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #dobPicker></mat-datepicker>
-    </mat-form-field>
+    <div class="flex gap-2">
+      <mat-form-field class="w-6/12">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="dobPicker" formControlName="dob" />
+        <mat-hint></mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="dobPicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #dobPicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="w-6/12">
+        <mat-label>Salary</mat-label>
+        <input matInput type="number" formControlName="salary" />
+      </mat-form-field>
+    </div>
+
     <div class="flex gap-2">
       <mat-form-field class="w-6/12">
         <mat-label>Joining Date</mat-label>
@@ -104,7 +112,7 @@
       </mat-form-field>
     </div>
 
-    <div class="flex justify-center mt-4">
+    <div class="flex justify-center mt-2">
       <button
         mat-flat-button
         type="submit"

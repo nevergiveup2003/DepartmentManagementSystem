@@ -31,19 +31,49 @@
     [opened]="authService.isLoggedIn"
   >
     <div class="flex flex-col items-center gap-4 text-blue-700 p-4">
-      @if(authService.isEmployee){
+      <mat-nav-list role="list">
+        @if(authService.isEmployee){
+        <mat-list-item
+          ><a class="menu" routerLink="/employeeDashboard"
+            ><mat-icon>house</mat-icon><span> Employee DashBoard</span></a
+          ></mat-list-item
+        >
+        <mat-list-item>
+          <a class="menu" routerLink="/leaves"
+            ><mat-icon>work_off</mat-icon><span>Leaves</span></a
+          ></mat-list-item
+        >
+        <mat-list-item
+          ><a class="menu" routerLink="/attendance"
+            ><mat-icon>insert_chart</mat-icon><span>Attendance History</span></a
+          ></mat-list-item
+        >
 
-      <a routerLink="/employeeDashboard">Employee DashBoard</a>
-      <a routerLink="/leaves">Leaves</a>
-      <a routerLink="/attendance">Attendance History</a>
+        } @else {
+        <mat-list-item
+          ><a class="menu" routerLink="/"
+            ><mat-icon>house</mat-icon><span>Employee DashBoard</span></a
+          ></mat-list-item
+        >
 
-      } @else {
-      <a routerLink="/">Employee DashBoard</a>
-      <a routerLink="departments">Departments</a>
-      <a routerLink="employee">Employee</a>
-      <a routerLink="/leaves">Leaves</a>
+        <mat-list-item
+          ><a class="menu" routerLink="departments"
+            ><mat-icon>meeting_room</mat-icon><span>Departments</span></a
+          ></mat-list-item
+        >
+        <mat-list-item
+          ><a class="menu" routerLink="employee"
+            ><mat-icon>people</mat-icon><span>Employee List</span></a
+          ></mat-list-item
+        >
+        <mat-list-item
+          ><a class="menu" routerLink="/leaves"
+            ><mat-icon>work_off</mat-icon><span>Leaves</span></a
+          ></mat-list-item
+        >
 
-      }
+        }
+      </mat-nav-list>
     </div>
   </mat-drawer>
   <mat-drawer-content>

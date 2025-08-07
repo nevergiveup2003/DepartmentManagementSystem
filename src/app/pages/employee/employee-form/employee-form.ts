@@ -48,6 +48,7 @@ export class EmployeeForm {
     name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     phone: ['', Validators.required],
+    salary:[],
     gender: ['1', Validators.required],
     departmentId: ['', Validators.required],
     jobTitle: ['', Validators.required],

@@ -5,9 +5,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { authService } from './services/auth';
+import {MatListModule}from '@angular/material/list'
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,MatToolbarModule, MatButtonModule, MatIconModule,MatSidenavModule,RouterLink],
+  imports: [RouterOutlet,MatToolbarModule, MatButtonModule, MatIconModule,MatSidenavModule,RouterLink,MatListModule,MatIconModule],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

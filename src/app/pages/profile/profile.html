@@ -20,6 +20,13 @@
         <input matInput formControlName="phone" />
       </mat-form-field>
 
+     @if(authService.isEmployee){
+       <mat-form-field appearance="fill" class="w-full mb-4">
+        <mat-label>Salary</mat-label>
+        <input matInput formControlName="Salary" type="number" />
+      </mat-form-field>
+     }
+
       <mat-form-field appearance="fill" class="w-full mb-4">
         <mat-label>Password</mat-label>
         <input matInput formControlName="password" type="password" />

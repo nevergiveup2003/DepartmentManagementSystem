@@ -44,6 +44,7 @@ export class Profile {
       name: [],
       profileImage: [],
       password: [],
+      salary:[]
     });
     this.authService.getProfile().subscribe((result : any) => {
       console.log(result);
