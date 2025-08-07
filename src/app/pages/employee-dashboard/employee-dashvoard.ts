@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { AppplyLeave } from '../../components/appply-leave/appply-leave';
 import { MatDialog } from '@angular/material/dialog';
+import { Leave } from '../../services/leave';
 
 @Component({
   selector: 'app-employee-dashvoard',
@@ -12,7 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class EmployeeDashboard {
   applyLeave() {
-    this.openDialog()
+    this.openDialog();
   }
   readonly dialog = inject(MatDialog);
   openDialog(): void {
@@ -21,5 +22,17 @@ export class EmployeeDashboard {
       data: {},
     });
     ref.afterClosed().subscribe((result) => {});
+  }
+  leaveService = inject(Leave);
+  markAttendance() {
+    this.leaveService.markPresent().subscribe({
+      next: (result) => {
+        alert('Your are marked present for today');
+      },
+      error:(e:any)=>{
+        console.log(e);
+        alert(e.error)
+      }
+    });
   }
 }

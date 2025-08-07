@@ -90,7 +90,7 @@ export class Leaves {
             this.getLeavesData();
           });
         break;
-      case 'Accepted':
+      case 'Accept':
         this.leaveService
           .updateLeaveStatus(event.rowData.id, LeaveStatus.Accepted)
           .subscribe(() => {

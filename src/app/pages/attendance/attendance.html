@@ -1,0 +1,12 @@
+<div class="p-8">
+  <app-table
+    *ngIf="data"
+    [pageData]="data"
+    [pageIndex]="filter.pageIndex"
+    [pageSize]="filter.pageSize"
+    [displayedColumns]="showCols"
+    (onPageChange)="pageChange($event)"
+  ></app-table>
+
+  <h1 *ngIf="!data">Data loading</h1>
+</div>

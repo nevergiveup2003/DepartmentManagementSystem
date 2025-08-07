@@ -40,7 +40,7 @@ export class AppplyLeave {
     }
     let leave: any = this.leaveForm.value;
     this.leaveService
-      .applyLeave(leave.type, leave.reason, leave.date)
+      .applyLeave(leave.type, leave.reason, leave.leaveDate)
       .subscribe((result) => {
         alert('Leave applied');
         this.dialogRef.close()

@@ -13,8 +13,7 @@
     [pageSize]="filter.pageSize"
 
     [displayedColumns]="showCols"
-    (onEdit)="edit($event)"
-    (onDelete)="delete($event)"
+    (rowLick)="onRowClick($event)"
     (onPageChange)="pageChange($event)"
   ></app-table>
   

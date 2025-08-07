@@ -8,7 +8,7 @@ import { PageData } from '../../types/page-data';
 
 @Component({
   selector: 'app-table',
-  imports: [MatTableModule, MatCardModule, MatButtonModule, MatPaginatorModule],
+  imports: [MatTableModule, MatCardModule, MatButtonModule, MatPaginatorModule,CommonModule],
   templateUrl: './table.html',
   styleUrl: './table.scss',
 })

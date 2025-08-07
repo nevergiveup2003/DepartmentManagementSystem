@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf="pageData?.data">
   <table mat-table [dataSource]="pageData.data">
     @for (item of displayedColumns; track $index) { @if(item.key) {<ng-container
       [matColumnDef]="item.key"

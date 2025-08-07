@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { HttpService } from '../../services/http';
 import { Table } from '../../components/table/table';
 import { IEmployee } from '../../types/IEmployee';
@@ -18,6 +18,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { debounceTime } from 'rxjs';
 import { PageData } from '../../types/page-data';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-employee',
   imports: [
@@ -32,8 +33,13 @@ import { PageData } from '../../types/page-data';
 })
 export class Employee {
   httpService = inject(HttpService);
+  router=inject( Router)
   pagedEmployeeData!: PageData<IEmployee>;
-  showCols = ['id', 'name', 'email', 'phone', 'action'];
+  showCols = ['id', 'name', 'email', 'phone', {key:'action',
+    format:()=>{
+return ['Edit',"Delete","Attendance"]
+    }}
+  ];
   filter: any = {
     pageIndex: 0,
     pageSize: 2,
@@ -92,5 +98,14 @@ export class Employee {
     console.log(event);
     this.filter.pageIndex = event.pageIndex;
     this.getLatesDate();
+  }
+  onRowClick(event:any){
+    if(event.btn === 'Edit'){
+      this.edit(event.rowData)
+    }if(event.btn === 'Delete'){
+      this.delete(event.rowData)
+    }if(event.btn === 'Attendance'){
+      this.router.navigateByUrl("/attendance/" + event.rowData.id)
+    }
   }
 }
