@@ -4,8 +4,9 @@
       [matColumnDef]="item.key"
     >
       <th mat-header-cell *matHeaderCellDef>{{ item.key }}</th>
-      <td mat-cell *matCellDef="let element" >
-        @if(item.key == 'action'){ @for (btn of item.format(element); track $index) {
+      <td mat-cell *matCellDef="let element">
+        @if(item.key == 'action'){ @for (btn of item.format(element); track
+        $index) {
         <button mat-flat-button (click)="onButtonClick(btn, element)">
           {{ btn }}
         </button>
@@ -19,8 +20,13 @@
       <th mat-header-cell *matHeaderCellDef>{{ item }}</th>
       <td mat-cell *matCellDef="let element">
         @if(item == 'action'){
-        <button mat-flat-button (click)="edit(element)" class="Edit">Edit</button
-        ><button class="bg-red-500! Delete" mat-flat-button (click)="delete(element)">
+        <button mat-flat-button (click)="edit(element)" class="Edit">
+          Edit</button
+        ><button
+          class="bg-red-500! Delete"
+          mat-flat-button
+          (click)="delete(element)"
+        >
           Delete</button
         >}@else {
         <span>{{ element[item] }}</span>

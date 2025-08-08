@@ -42,7 +42,7 @@ return ['Edit',"Delete","Attendance"]
   ];
   filter: any = {
     pageIndex: 0,
-    pageSize: 2,
+    pageSize: 5,
   };
   ngOnInit() {
     this.getLatesDate();

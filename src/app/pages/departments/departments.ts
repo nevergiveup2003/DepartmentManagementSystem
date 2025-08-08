@@ -29,7 +29,7 @@ export class Departments {
   isFormOpen: boolean = false;
   filter = {
     pageIndex: 0,
-    pageSize: 2,
+    pageSize: 5,
   };
   showCols = ['id', 'name', 'action'];
 
