@@ -1,59 +1,54 @@
-# Frontend
+# Employee Management System
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.0.
+## 📋 Giới thiệu
+Hệ thống **Quản lý Nhân viên** giúp doanh nghiệp dễ dàng quản lý thông tin nhân sự, phân quyền người dùng, chấm công, quản lý nghỉ phép và tính toán lương.  
+Ứng dụng được xây dựng theo mô hình **Client-Server** với **ASP.NET Core Web API** (Backend) và **Angular** (Frontend).
 
-## Development server
+---
 
-To start a local development server, run:
+## ✨ Tính năng chính
+### 🛡 Dành cho Quản lý (Admin)
+- **Thống kê tổng quan**:
+  - Tổng số nhân viên.
+  - Tổng số phòng ban (Department).
+  - Tổng lương tháng phải trả cho tất cả nhân viên.
+- **Quản lý nhân viên**:
+  - Thêm, sửa, xóa, tìm kiếm, phân trang.
+  - Xem danh sách nhân viên theo phòng ban.
+- **Quản lý nghỉ phép**:
+  - Xem danh sách yêu cầu nghỉ của nhân viên.
+  - Đồng ý hoặc từ chối yêu cầu nghỉ.
+- **Quản lý chấm công**:
+  - Xem báo cáo chấm công theo tháng.
+  - Kiểm tra tình trạng đi làm/ nghỉ.
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 👩‍💼 Dành cho Nhân viên (Employee)
+- **Xem thông tin cá nhân & lương**.
+- **Đăng ký nghỉ phép**:
+  - Gửi yêu cầu nghỉ kèm lý do.
+  - Xem trạng thái yêu cầu (đang chờ, được duyệt, bị từ chối).
+- **Chấm công hàng ngày**:
+  - Check-in / Check-out.
+  - Xem lịch sử chấm công cá nhân.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🛠️ Công nghệ sử dụng
+### Backend
+- **ASP.NET Core Web API**
+- **Entity Framework Core** (Code-First)
+- **SQL Server**
+- **JWT Authentication**
+- **Repository Pattern**
 
-```bash
-ng generate component component-name
-```
+### Frontend
+- **Angular 17+**
+- **Angular Material**
+- **RxJS & HttpClient**
+- **TypeScript**
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
