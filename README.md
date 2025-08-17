@@ -17,6 +17,7 @@ Hệ thống **Quản lý Nhân viên** giúp doanh nghiệp dễ dàng quản l
   - Thêm, sửa, xóa, tìm kiếm, phân trang.
   - Xem danh sách nhân viên theo phòng ban.
   ![Demo](./assets/image/employeeList.png)
+  ![Demo](./assets/image/addEmployee.png)
 - **Quản lý nghỉ phép**:
   - Xem danh sách yêu cầu nghỉ của nhân viên.
   - Đồng ý hoặc từ chối yêu cầu nghỉ.
@@ -30,6 +31,8 @@ Hệ thống **Quản lý Nhân viên** giúp doanh nghiệp dễ dàng quản l
 
 ### 👩‍💼 Dành cho Nhân viên (Employee)
 - **Xem thông tin cá nhân & lương**.
+    ![Demo](./assets/image/infoEmployee.png)
+
 - **Đăng ký nghỉ phép**:
   - Gửi yêu cầu nghỉ kèm lý do.
   - Xem trạng thái yêu cầu (đang chờ, được duyệt, bị từ chối).
