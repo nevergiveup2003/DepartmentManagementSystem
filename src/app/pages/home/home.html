@@ -2,15 +2,27 @@
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     <mat-card class="p-8 bg-1">
       <h1 class="text-2xl mb-2 tw">Total Salary this month</h1>
-      <h2 class="text-3xl ">{{ salaryForMonth }}</h2>
+      <h2 class="text-3xl">{{ salaryForMonth }}</h2>
     </mat-card>
     <mat-card class="p-8 bg-2">
       <h1 class="text-2xl mb-2 tw">Total Employee Count</h1>
-      <h2 class="text-3xl ">{{ employeeCount }}</h2>
+      <h2 class="text-3xl">{{ employeeCount }}</h2>
     </mat-card>
     <mat-card class="p-8 bg-3">
       <h1 class="text-2xl mb-2 tw">Total Department Count</h1>
-      <h2 class="text-3xl ">{{ departmentCount }}</h2>
+      <h2 class="text-3xl">{{ departmentCount }}</h2>
+    </mat-card>
+  </div>
+  <div class="mt-8">
+    <mat-card class="p-4">
+      <canvas
+        baseChart
+        [data]="barChartData"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [type]="'bar'"
+      ></canvas>
     </mat-card>
   </div>
 </div>

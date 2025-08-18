@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { IDashboard } from '../types/dashboard';
+import { IDashboard, IDepartmentData } from '../types/dashboard';
+import { ILeave } from '../types/leave';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,16 @@ export class Dashboard {
   constructor() {}
 
   getDashBoardData() {
-   return this.http.get<IDashboard>(environment.apiUrl + '/api/Dashboard');
+    return this.http.get<IDashboard>(environment.apiUrl + '/api/Dashboard');
+  }
+  getDepartmentData() {
+    return this.http.get<IDepartmentData[]>(
+      environment.apiUrl + '/api/Dashboard/department-data'
+    );
+  }
+  getTodayLeaveData() {
+    return this.http.get<ILeave[]>(
+      environment.apiUrl + '/api/Dashboard/employee-leave-today'
+    );
   }
 }

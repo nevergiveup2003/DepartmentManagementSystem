@@ -3,3 +3,7 @@ export interface IDashboard {
   employeeCount: number;
   departmentCount: number;
 }
+export interface IDepartmentData {
+  name: string;
+  employeeCount: number;
+}

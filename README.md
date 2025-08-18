@@ -13,6 +13,9 @@ Hệ thống **Quản lý Nhân viên** giúp doanh nghiệp dễ dàng quản l
   - Tổng số phòng ban (Department).
   - Tổng lương tháng phải trả cho tất cả nhân viên.
   ![Demo](./assets/image/dashboard.png)
+  - Biểu đồ tổng số nhân viên cho mỗi phòng
+  ![Demo](./assets/image/bieudo.png)
+
 - **Quản lý nhân viên**:
   - Thêm, sửa, xóa, tìm kiếm, phân trang.
   - Xem danh sách nhân viên theo phòng ban.
